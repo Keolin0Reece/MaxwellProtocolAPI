@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 using ConsoleApp1.Models;
 using ConsoleApp1;
+using Microsoft.AspNetCore.SignalR;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace APIService
@@ -20,12 +21,14 @@ namespace APIService
         private readonly SerialPort _serialPort;
         public MessageType[] messageTypes;
         private readonly StringBuilder _buffer; // Buffer to accumulate data
+        private readonly IHubContext<ArduinoHub> _hubContext;
         private const int MaxBufferSize = 1024; // Maximum allowed buffer size to prevent unbounded growth
         private List<byte> dynamicBuffer;
-        private static float voltage = 0;
 
-        public SerialPortService()
+        public SerialPortService(IHubContext<ArduinoHub> hubContext)
         {
+            _hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
+
             _serialPort = new SerialPort
             {
                 PortName = "COM6", // Update to your COM port
@@ -39,8 +42,8 @@ namespace APIService
 
             messageTypes = MessageTypeLoader.LoadMessageTypesFromJson("C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\TOMessage.json");
 
-            _buffer = new StringBuilder();
-;
+            
+            
             _serialPort.DataReceived += SerialPort_DataReceived; // Subscribe to the event
 
             dynamicBuffer = new List<byte>();
@@ -99,7 +102,7 @@ namespace APIService
                 Console.WriteLine($"Error reading serial data: {ex.Message}");
             }
         }
-        private static void ProcessBuffer(List<byte> buffer)
+        private void ProcessBuffer(List<byte> buffer)
         {
             while (true)
             {
@@ -124,8 +127,10 @@ namespace APIService
                 {
                     //Console.WriteLine("Received WMBUS message:");
                     //Console.WriteLine(message.ToString());
+                    float voltage = 0;
                     voltage = ByteArrayToInt(message.Data) * (5.0f /1023);
                     Console.WriteLine(voltage.ToString("0.00"));
+                    SendVoltageToClientsAsync(voltage);
                 }
                 else
                 {
@@ -133,6 +138,20 @@ namespace APIService
                 }
             }
         }
+        private async void SendVoltageToClientsAsync(float voltage)
+        {
+            try
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveSignal", new { Signal = voltage });
+                Console.WriteLine($"Voltage {voltage:0.00} sent to clients.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending data to SignalR clients: {ex.Message}");
+            }
+        }
+
+
         public static int ByteArrayToInt(byte[] byteArray)
         {
             int result = 0;

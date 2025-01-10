@@ -3,26 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\serialportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:serialportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\protocolmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:protocolmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,12 +11,36 @@
       "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:messagetypeloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\protocolmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:protocolmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\serialportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:serialportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\arduinohub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:arduinohub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\messagetypeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:messagetypeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|c:\\users\\impul\\documents\\maxwellnspark\\apiservice\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCF743E0-B1D8-4507-A53E-5B672449C06A}|APIService.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,17 +50,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SerialPortService.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\SerialPortService.cs",
               "RelativeDocumentMoniker": "SerialPortService.cs",
               "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\SerialPortService.cs",
               "RelativeToolTip": "SerialPortService.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAwH8AAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAI8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T18:11:02.388Z",
               "IsPinned": true,
@@ -65,45 +69,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Protocol.cs",
-              "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Protocol.cs",
-              "RelativeDocumentMoniker": "Protocol.cs",
-              "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Protocol.cs",
-              "RelativeToolTip": "Protocol.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAYwCEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:38:14.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "ProtocolMessage.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\ProtocolMessage.cs",
               "RelativeDocumentMoniker": "ProtocolMessage.cs",
               "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\ProtocolMessage.cs",
               "RelativeToolTip": "ProtocolMessage.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-09T09:07:03.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Worker.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Worker.cs",
               "RelativeDocumentMoniker": "Worker.cs",
               "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Worker.cs",
               "RelativeToolTip": "Worker.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T12:24:25.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "MessageTypeConfig.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\MessageTypeConfig.cs",
               "RelativeDocumentMoniker": "MessageTypeConfig.cs",
@@ -111,11 +102,12 @@
               "RelativeToolTip": "MessageTypeConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:38:08.428Z"
+              "WhenOpened": "2025-01-08T13:38:08.428Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "MessageTypeLoader.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\MessageTypeLoader.cs",
               "RelativeDocumentMoniker": "MessageTypeLoader.cs",
@@ -123,23 +115,64 @@
               "RelativeToolTip": "MessageTypeLoader.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:38:02.252Z"
+              "WhenOpened": "2025-01-08T13:38:02.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T12:24:28.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ArduinoHub.cs",
+              "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\ArduinoHub.cs",
+              "RelativeDocumentMoniker": "ArduinoHub.cs",
+              "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\ArduinoHub.cs",
+              "RelativeToolTip": "ArduinoHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T07:15:27.996Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Protocol.cs",
+              "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Protocol.cs",
+              "RelativeDocumentMoniker": "Protocol.cs",
+              "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Protocol.cs",
+              "RelativeToolTip": "Protocol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T13:38:14.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Command.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Command.cs",
               "RelativeDocumentMoniker": "Command.cs",
               "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Command.cs",
               "RelativeToolTip": "Command.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:36:32.908Z"
+              "WhenOpened": "2025-01-08T13:36:32.908Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "DeviceController.cs",
               "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Controllers\\DeviceController.cs",
               "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
@@ -147,21 +180,7 @@
               "RelativeToolTip": "Controllers\\DeviceController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T12:31:20.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA0AAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T12:24:28.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-08T12:31:20.941Z"
             }
           ]
         }
