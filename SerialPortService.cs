@@ -1,68 +1,83 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO.Ports;
 using ConsoleApp1.Models;
 using ConsoleApp1;
 using Microsoft.AspNetCore.SignalR;
-using static System.Net.Mime.MediaTypeNames;
+using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Text;
 
 namespace APIService
 {
+//---------------------------------------------------
+// INITIALIZATIONS
+//---------------------------------------------------
+    // Interface for serial port communication services
     public interface ISerialPortService
     {
-        void SendData();
+        void SendData(); // Method to send data to the serial port
     }
 
+    // Main service for handling serial port communication and processing WMBUS protocol messages
     public class SerialPortService : ISerialPortService, IDisposable
     {
         private readonly SerialPort _serialPort;
-        public MessageType[] messageTypes;
-        private readonly StringBuilder _buffer; // Buffer to accumulate data
         private readonly IHubContext<ArduinoHub> _hubContext;
-        private const int MaxBufferSize = 1024; // Maximum allowed buffer size to prevent unbounded growth
-        private List<byte> dynamicBuffer;
 
+        private const int MaxBufferSize = 1024; // Maximum buffer size to avoid memory issues
+        private List<byte> dynamicBuffer; // Dynamically growing buffer to accumulate incoming data
+        public MessageType[] messageTypes; // Array to store message types
+        private readonly StringBuilder _buffer; // Buffer to accumulate data
+        
+        // Constructor to initialize the serial port and set up event listeners
         public SerialPortService(IHubContext<ArduinoHub> hubContext)
         {
             _hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
 
+            // Initialize the serial port with necessary configurations
             _serialPort = new SerialPort
             {
-                PortName = "COM6", // Update to your COM port
+                PortName = "COM6", // Update with correct COM port
                 BaudRate = 9600,
                 Parity = Parity.None,
                 DataBits = 8,
                 StopBits = StopBits.One,
                 Handshake = Handshake.None,
-                NewLine = "\n" // Set the NewLine character explicitly
+                NewLine = "\n" // NewLine character for message termination
             };
 
-            messageTypes = MessageTypeLoader.LoadMessageTypesFromJson("C:\\Users\\impul\\Documents\\MaxwellnSpark\\APIService\\TOMessage.json");
+            // Load message types from a JSON file
+            messageTypes = MessageTypeLoader.LoadMessageTypesFromJson("TOMessage.json");
 
-            
-            
-            _serialPort.DataReceived += SerialPort_DataReceived; // Subscribe to the event
+            // Subscribe to serial port data received event
+            _serialPort.DataReceived += SerialPort_DataReceived;
 
+            // Initialize dynamic buffer
             dynamicBuffer = new List<byte>();
 
+            // Open the serial port
             _serialPort.Open();
         }
 
+//---------------------------------------------------
+// MAIN METHODS
+//---------------------------------------------------
+
+        // Method to send a message to the serial port
         public void SendData()
         {
             if (_serialPort.IsOpen)
             {
-                // Encode and send a WMBUS message (example message)
-                Message message1 = new Message
+                // Example message data for encoding and sending
+                Message message = new Message
                 {
-                    MessageData = "3",
-                    TypeofData = messageTypes[0]
+                    MessageData = "3", // Example data
+                    TypeofData = messageTypes[0] // Example message type
                 };
 
-                byte[] encodedMessage = WMBUSProtocol.EncodeWMBUSMessage(0x01, message1);
+                // Encode message into WMBUS format
+                byte[] encodedMessage = WMBUSProtocol.EncodeWMBUSMessage(0x01, message);
+
+                // Write the encoded message to the serial port
                 _serialPort.Write(encodedMessage, 0, encodedMessage.Length);
             }
             else
@@ -71,6 +86,7 @@ namespace APIService
             }
         }
 
+        // Event handler for receiving data from the serial port
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -80,20 +96,17 @@ namespace APIService
 
                 if (bytesRead > 0)
                 {
-                    // Add only the valid portion of tempBuffer to dynamicBuffer
-                    for (int i = 0; i < bytesRead; i++)
-                    {
-                        dynamicBuffer.Add(tempBuffer[i]);
-                    }
+                    // Add the received data to the dynamic buffer
+                    dynamicBuffer.AddRange(tempBuffer.Take(bytesRead));
 
-                    // Process messages from the buffer
+                    // Process any complete messages in the buffer
                     ProcessBuffer(dynamicBuffer);
 
-                    // Ensure buffer does not grow uncontrollably
+                    // Ensure the buffer size remains within the limit
                     if (dynamicBuffer.Count > MaxBufferSize)
                     {
                         Console.WriteLine("Warning: Buffer exceeded maximum size. Clearing buffer to prevent memory issues.");
-                        dynamicBuffer.Clear();
+                        dynamicBuffer.Clear(); // Clear the buffer if it's too large
                     }
                 }
             }
@@ -102,22 +115,23 @@ namespace APIService
                 Console.WriteLine($"Error reading serial data: {ex.Message}");
             }
         }
+
+        // Method to process the incoming buffer and decode complete messages
         private void ProcessBuffer(List<byte> buffer)
         {
             while (true)
             {
-                // Look for the newline character as the delimiter
+                // Look for the newline character as the message delimiter
                 int newlineIndex = buffer.IndexOf((byte)'\n');
                 if (newlineIndex == -1)
                 {
-                    // No complete message in the buffer yet
-                    break;
+                    break; // No complete message in the buffer yet
                 }
 
-                // Extract the full message (up to the newline character)
+                // Extract the message from the buffer
                 byte[] messageBytes = buffer.GetRange(0, newlineIndex).ToArray();
 
-                // Remove the processed message (including the newline character) from the buffer
+                // Remove the processed message from the buffer
                 buffer.RemoveRange(0, newlineIndex + 1);
 
                 // Decode the WMBUS message
@@ -125,10 +139,8 @@ namespace APIService
 
                 if (message != null)
                 {
-                    //Console.WriteLine("Received WMBUS message:");
-                    //Console.WriteLine(message.ToString());
-                    float voltage = 0;
-                    voltage = ByteArrayToInt(message.Data) * (5.0f /1023);
+                    // Calculate the voltage from the ADC value and send it to clients
+                    float voltage = ByteArrayToInt(message.Data) * (5.0f / 1023);
                     Console.WriteLine(voltage.ToString("0.00"));
                     SendVoltageToClientsAsync(voltage);
                 }
@@ -138,6 +150,8 @@ namespace APIService
                 }
             }
         }
+
+        // Asynchronous method to send voltage data to SignalR clients
         private async void SendVoltageToClientsAsync(float voltage)
         {
             try
@@ -151,29 +165,30 @@ namespace APIService
             }
         }
 
+//---------------------------------------------------
+// HELPER FUNCTIONS
+//---------------------------------------------------
 
+        // Helper method to convert a byte array to an integer
         public static int ByteArrayToInt(byte[] byteArray)
         {
             int result = 0;
-
-            // Iterate through the array from left to right, multiplying by the correct power of 256
-            for (int i = 0; i < byteArray.Length; i++)
+            foreach (byte b in byteArray)
             {
-                result = (result << 8) | byteArray[i];
+                result = (result << 8) | b;
             }
-
             return result;
         }
-    
 
+        // Dispose of the serial port when the service is no longer needed
         public void Dispose()
         {
             if (_serialPort.IsOpen)
             {
-                _serialPort.Close();
+                _serialPort.Close(); // Close the serial port
             }
 
-            _serialPort.Dispose();
+            _serialPort.Dispose(); // Dispose of the serial port resource
         }
     }
 }
