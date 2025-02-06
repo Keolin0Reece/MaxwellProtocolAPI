@@ -13,6 +13,11 @@ namespace APIService
             _serialPortService = serialPortService;
         }
 
+        /// <summary>
+        /// Sends a command to the connected device via serial communication.
+        /// </summary>
+        /// <param name="command">The command to be sent.</param>
+        /// <returns>A response indicating success or failure.</returns>
         [HttpPost]
         public IActionResult SendCommand([FromBody] CommandRequest command)
         {
@@ -33,7 +38,9 @@ namespace APIService
         }
     }
 
-
+    /// <summary>
+    /// Represents a command request sent to the API.
+    /// </summary>
     public class CommandRequest
     {
         public string Command { get; set; }
