@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    /// <summary>
+    /// Represents the type of a message, including its metadata.
+    /// </summary>
     public class MessageType
     {
         public string Name { get; set; }
