@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    /// <summary>
+    /// Represents a decoded WMBUS protocol message.
+    /// </summary>
     public class ProtocolMessage
     {
         public byte MessageID { get; set; }
@@ -15,6 +18,9 @@ namespace ConsoleApp1
         public byte Checksum { get; set; }
         public bool IsValidChecksum { get; set; }
 
+        /// <summary>
+        /// Returns a string representation of the protocol message.
+        /// </summary>
         public override string ToString()
         {
             return $"Message ID: {MessageID}\n" +
