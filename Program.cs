@@ -1,38 +1,53 @@
-using APIService; // Update namespace to match your project
+using APIService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add CORS policy
+// ------------------------------------
+// Service Registration
+// ------------------------------------
+
+// Add CORS policy to allow frontend requests
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins("http://192.168.20.155:3000") // Allow requests from your frontend
+        policy.WithOrigins("http://0.0.0.0:3000") // Hidden URL for development testing
               .AllowAnyMethod()
               .AllowAnyHeader()
-              .AllowCredentials()); // Important if credentials or SignalR WebSockets are used
+              .AllowCredentials()); // Required for SignalR WebSockets
 });
 
-// Add controller services
-builder.Services.AddControllers(); // Enables controller routes
-builder.WebHost.UseUrls("http://0.0.0.0:5000"); // Configure URL binding
+builder.Services.AddControllers();
 
-// Add SignalR
+// Configure SignalR for real-time communication
 builder.Services.AddSignalR();
 
-// Add hosted service and dependencies
+// Register background worker and serial port service
 builder.Services.AddHostedService<Worker>();
-builder.Services.AddSingleton<ISerialPortService, SerialPortService>(); // Update to match your dependency
+builder.Services.AddSingleton<ISerialPortService, SerialPortService>();
+
+// Configure application to listen on all network interfaces (port 5000)
+builder.WebHost.UseUrls("http://0.0.0.0:5000");
 
 var app = builder.Build();
 
-// Use CORS middleware before routing
+// ------------------------------------
+// Middleware Pipeline
+// ------------------------------------
+
+// Enable CORS
 app.UseCors("AllowFrontend");
 
+// Enable routing
 app.UseRouting();
 
-app.MapControllers(); // Map controller routes
-app.MapHub<ArduinoHub>("/arduinoHub"); // Map SignalR hub
+// Map controller routes
+app.MapControllers();
+
+// Map SignalR hub for real-time communication
+app.MapHub<ArduinoHub>("/arduinoHub");
 
 app.Run();
